@@ -47,13 +47,6 @@ const ContextMenu = (props: ContextMenuProps) => {
     [onVisibleChange]
   );
 
-  const handleClickOutside = useCallback((e: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-      setVisible(false);
-      onVisibleChange?.(false);
-    }
-  }, [onVisibleChange]);
-
   const handleItemClick = useCallback(
     (item: ContextMenuItem) => {
       if (!item.disabled) {
