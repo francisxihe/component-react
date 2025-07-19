@@ -5,5 +5,11 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-links',
   ],
-  framework: '@storybook/react',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
+  docs: {
+    autodocs: 'tag',
+  },
 };

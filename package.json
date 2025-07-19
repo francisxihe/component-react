@@ -11,7 +11,8 @@
     "style": "./dist/css/index.css"
   },
   "scripts": {
-    "dev": "start-storybook -p 6006",
+    "dev": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "dev:vite": "vite",
     "build": "arco-scripts build:component",
     "build:vite": "vite build",
@@ -38,10 +39,12 @@
   },
   "devDependencies": {
     "@arco-design/web-react": "^2.28.0",
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-essentials": "^6.5.16",
-    "@storybook/addon-links": "^6.5.16",
-    "@storybook/react": "^6.5.16",
+    "@storybook/addon-actions": "^7.6.17",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-vite": "^7.6.17",
+    "storybook": "^7.6.17",
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.19",
     "@types/react": "^18.0.0",

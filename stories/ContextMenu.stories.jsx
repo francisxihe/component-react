@@ -60,15 +60,19 @@ export default {
   parameters: {
     layout: 'centered',
   },
+  tags: ['autodocs'],
   argTypes: {
     items: {
       description: '菜单项配置',
+      control: { type: 'object' },
     },
     onItemClick: {
       description: '菜单项点击回调',
+      action: 'onItemClick',
     },
     onVisibleChange: {
       description: '菜单显示状态变化回调',
+      action: 'onVisibleChange',
     },
   },
 };
@@ -76,12 +80,6 @@ export default {
 export const Basic = {
   args: {
     items: menuItems,
-    onItemClick: (item) => {
-      alert(`菜单项被点击: ${item.label}`);
-    },
-    onVisibleChange: (visible) => {
-      alert(`菜单显示状态: ${visible ? '显示' : '隐藏'}`);
-    },
     children: (
       <div
         style={{
