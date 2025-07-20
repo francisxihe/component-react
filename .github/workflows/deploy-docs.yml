@@ -43,6 +43,11 @@ jobs:
       - name: Build Storybook
         run: pnpm build-storybook
         
+      - name: Prepare docs with Storybook
+        run: |
+          mkdir -p ./docs/storybook
+          cp -r ./storybook-static/* ./docs/storybook/
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
@@ -51,11 +56,6 @@ jobs:
         with:
           source: ./docs
           destination: ./_site
-          
-      - name: Copy Storybook to docs
-        run: |
-          mkdir -p ./_site/storybook
-          cp -r ./storybook-static/* ./_site/storybook/
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

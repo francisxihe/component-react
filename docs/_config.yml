@@ -41,6 +41,10 @@ exclude:
   - .jekyll-cache
   - gemfiles
 
+# 包含文件（确保 storybook 目录被复制）
+include:
+  - storybook
+
 # 社交链接
 github_username: francisxihe
 npm_package: francis-component-react
