@@ -1,109 +1,147 @@
-# Arco 物料库
+# Francis Component React
 
-[物料平台文档中心](https://arco.design/docs/material/guide)
+[![npm version](https://badge.fury.io/js/francis-component-react.svg)](https://badge.fury.io/js/francis-component-react)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 
-## 快速开始
+基于 [Arco Design](https://arco.design/) 组件库的 React 组件库，用于扩充 Arco Design 组件库的功能。
 
-**在 `npm run dev` 前，请运行 `npm run add:component -- ComponentName` 创建第一个组件，否则 dev 将会因缺少 Story 入口而报错。**
+## ✨ 特性
 
-```
-# 添加组件
-npm run add:component -- YourComponentName
+- 🎨 基于 Arco Design 设计语言
+- 📦 开箱即用的高质量 React 组件
+- 🛡 使用 TypeScript 开发，提供完整的类型定义文件
+- 📖 完整的 Storybook 文档
+- 🎯 支持按需加载
+- 🌍 国际化语言支持
 
-# 开发模式
-npm run dev
+## 📦 安装
 
-# 构建
-npm run build
+```bash
+# npm
+npm install francis-component-react
 
-# 发布至物料平台（需先发布 NPM 包）
-arco sync
-```
+# yarn
+yarn add francis-component-react
 
-## 样式
-
-在 `components/style` 下，你可以编写全局样式。
-
-`components/*/style/index.tsx` 用于组件样式的按需加载，你需要在此文件中声明该组件依赖的其他组件样式。 例如：组件 A 内使用到了组件 B，则按需加载 A 的样式时同样需要加载 B 的样式，故需要在 `components/A/style/index.tsx` 中声明 `import '../../B/style'`。
-
-
-## 提供 Demo
-
-Demo 目录位于 `components/*/demo`。在 `demo/index.js` 中，通过 JSDoc 的语法提供物料及各个 Demo 的相关信息。
-
-```javascript
-// src/demo/index.js
-
-/**
- * @file
- * @title 名称
- * @memberOf 数据录入
- * @description 一段对于物料的描述。
- * @author 物料作者
- */
-
-/**
- * @title 基础用法
- * @description 一个物料最基本的使用方式。
- */
-export { default as Basic } from './basic';
+# pnpm
+pnpm add francis-component-react
 ```
 
-## API 文档
+## 🔨 使用
 
-**为了帮助他人更好地使用你的组件，请提供详细的 API 文档。**
+```tsx
+import React from 'react';
+import { Container, TagEllipsis, ContextMenu } from 'francis-component-react';
 
-### 书写注释
-
-我们提供了自动化的文档生成工具，它从 TS 接口定义中提取注释自动生成属性文档。按照以下指引使用，为接口书写 tsDoc 类型的注释：
-
-```typescript
-/**
- * @title Button (必填，带有 `title` 描述的接口或者类型才会被收集)
- */
-interface ButtonProps {
-  /**
-   * @zh 按钮尺寸 (属性的中文描述)
-   * @en Size of Button (属性的英文描述)
-   * @version 1.2.0 (可选，新增的属性在哪个版本开始支持)
-   * @defaultValue 'default' (可选，属性的默认值)
-   */
-  size?: 'mini' | 'small' | 'default' | 'large';
-  /**
-   * @zh 按钮状态
-   * @en Status of Button
-   */
-  status?: 'danger' | 'error' | 'success';
+function App() {
+  return (
+    <Container direction="vertical">
+      <TagEllipsis maxTag={3}>
+        <span>标签1</span>
+        <span>标签2</span>
+        <span>标签3</span>
+        <span>标签4</span>
+      </TagEllipsis>
+    </Container>
+  );
 }
+
+export default App;
 ```
 
-### 扩展 TEMPLATE.md
+## 📚 组件列表
 
-`TEMPLATE.md` 是用于自动文档生成的模板，你可以修改此文件添加更多组件的使用帮助信息，但请不要删除其原有的内容，否则可能导致内容替换失败。
+### 布局组件
 
-```markdown
-// TEMPLATE.md
----
-file: index,interface (可以指定多个文档提取的入口文件，使用逗号隔开)
----
+- **FlexibleContainer** - 灵活的容器组件
+  - `Container` - 基础容器
+  - `ContainerFixed` - 固定尺寸容器
+  - `ContainerShrink` - 可收缩容器
 
-# TooltipButton
+### 数据展示
 
-## 属性/Props
+- **TagEllipsis** - 标签省略组件，支持响应式显示和省略
 
-%%Props%%
+### 交互组件
 
-### OtherProps
+- **ContextMenu** - 右键菜单组件
 
-在这里你可以书写更多组件帮助文档。
+## 🔗 链接
 
-## Demos
+- [📖 组件文档](https://your-username.github.io/francis-component-react/)
+- [🎨 Storybook 演示](https://your-storybook-url.com)
+- [🐛 报告问题](https://github.com/your-username/francis-component-react/issues)
 
-%%Demos%%
+## 🤝 参与贡献
+
+我们欢迎所有的贡献。请先阅读我们的[贡献指南](./CONTRIBUTING.md)。
+
+你可以将任何想法作为 [Pull Request](https://github.com/your-username/francis-component-react/pulls) 或 [GitHub Issue](https://github.com/your-username/francis-component-react/issues) 提交。
+
+## 🛠 开发
+
+### 环境要求
+
+- Node.js >= 16
+- pnpm >= 7
+
+### 本地开发
+
+```bash
+# 克隆项目
+git clone https://github.com/your-username/francis-component-react.git
+
+# 进入项目目录
+cd francis-component-react
+
+# 安装依赖
+pnpm install
+
+# 启动 Storybook 开发服务器
+pnpm dev
+
+# 构建组件库
+pnpm build
+
+# 运行测试
+pnpm test
+
+# 代码格式化
+pnpm format
+
+# 代码检查
+pnpm eslint
 ```
 
-## 测试
+### 添加新组件
 
-测试目录位于 `components/*/__test__`。你可以在 `index.test.tsx` 中编写你的测试用例，在 `demo.test.tsx` 中可以进行基于 Demo 的快照测试。
+```bash
+# 使用脚本创建新组件
+pnpm add:component -- YourComponentName
+```
 
-`npm run test` 命令允许你传入任何 `jest` 的命令行参数，例如 `npm run test -- --u` `npm run test -- --no-cache`。
+### 项目结构
+
+```
+francis-component-react/
+├── components/          # 组件源码
+│   ├── ComponentName/
+│   │   ├── index.tsx   # 组件主文件
+│   │   ├── style/      # 组件样式
+│   │   ├── demo/       # 组件示例
+│   │   └── __test__/   # 组件测试
+│   └── index.tsx       # 组件导出
+├── stories/            # Storybook 文档
+├── docs/              # GitHub Pages 文档
+├── types/             # TypeScript 类型定义
+└── tests/             # 测试配置
+```
+
+## 📄 许可证
+
+[MIT](./LICENSE)
+
+## 🙏 致谢
+
+感谢 [Arco Design](https://arco.design/) 团队提供的优秀设计系统和组件库。
