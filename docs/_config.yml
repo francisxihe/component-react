@@ -1,0 +1,57 @@
+# GitHub Pages 配置
+title: Francis Component React
+description: 基于 Arco Design 的 React 组件库
+url: "https://francisxihe.github.io"
+baseurl: "/component-react"
+
+# 主题设置
+theme: minima
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Markdown 处理器
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 代码高亮
+highlighter: rouge
+
+# 导航菜单
+header_pages:
+  - index.md
+  - guide/getting-started.md
+  - components/index.md
+  - examples/index.md
+  - api/index.md
+  - faq.md
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+
+# 社交链接
+github_username: francisxihe
+npm_package: francis-component-react
+
+# SEO
+author:
+  name: Francis
+  email: your-email@example.com
+
+social:
+  name: Francis Component React
+  links:
+    - https://github.com/francisxihe/component-react
+    - https://www.npmjs.com/package/francis-component-react
