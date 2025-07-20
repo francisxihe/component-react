@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { ContextMenu } from '../components';
 
 const menuItems = [
@@ -54,7 +55,7 @@ const menuItems = [
   },
 ];
 
-export default {
+const meta: Meta<typeof ContextMenu> = {
   title: 'Components/ContextMenu',
   component: ContextMenu,
   parameters: {
@@ -77,7 +78,11 @@ export default {
   },
 };
 
-export const Basic = {
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Basic: Story = {
   args: {
     items: menuItems,
     children: (
@@ -100,7 +105,7 @@ export const Basic = {
   },
 };
 
-export const WithCustomStyle = {
+export const WithCustomStyle: Story = {
   args: {
     items: menuItems.slice(0, 3),
     menuStyle: {
