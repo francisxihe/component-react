@@ -1,33 +1,27 @@
 {
   "name": "francis-component-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "基于 arco-design 组件库的 react 组件库，用于扩充 arco-design 组件库的功能",
-  "main": "./lib/index.js",
-  "module": "./es/index.js",
-  "types": "./es/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "umd": {
     "file": "./dist/index.min.js",
     "module": "arcoMaterial",
     "style": "./dist/css/index.css"
   },
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "dev:vite": "vite",
-    "build": "arco-scripts build:component",
-    "build:vite": "vite build",
+    "dev:storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview",
-    "docgen": "arco-scripts docgen",
-    "test:client": "arco-scripts build:component:cjs && arco-scripts test:client",
-    "test:node": "arco-scripts build:component:cjs && arco-scripts test:node",
-    "test": " arco-scripts build:component:cjs && NODE_ENV=test arco-scripts test",
     "add:component": "node ./scripts/addComponent.js",
-    "show:config": "arco-scripts show:config",
     "eslint": "eslint tests/ components/ --fix --cache --quiet --ext .js,.jsx,.ts,.tsx",
     "stylelint": "stylelint 'components/**/*.less' --fix --cache",
     "format": "prettier '{tests,components}/**/*.{js,jsx,ts,tsx}' --config .prettierrc --write ",
     "clean": "rm -rf es lib dist",
-    "prepublishOnly": "npm run clean && npm run build && npm run docgen"
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "peerDependencies": {
     "@arco-design/web-react": "~2",
@@ -54,7 +48,6 @@
     "@typescript-eslint/eslint-plugin": "4.0.1",
     "@typescript-eslint/parser": "4.0.1",
     "@vitejs/plugin-react": "^4.0.0",
-    "arco-scripts": "^1.25.15",
     "chalk": "^2.4.2",
     "concurrently": "^5.3.0",
     "cross-spawn": "^7.0.3",
@@ -98,8 +91,6 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "npm run eslint",
-      "arco-scripts test:client --bail --findRelatedTests --passWithNoTests --coverage",
-      "arco-scripts test:node --bail --findRelatedTests --passWithNoTests",
       "git add"
     ],
     "*.{css, less}": [

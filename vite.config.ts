@@ -8,8 +8,9 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
-      include: ['components/**/*'],
+      include: ['components/**/*', 'types/**/*'],
       exclude: ['**/*.stories.*', '**/*.test.*'],
+      copyDtsFiles: true,
     }),
   ],
   build: {

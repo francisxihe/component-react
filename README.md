@@ -69,15 +69,15 @@ export default App;
 
 ## 🔗 链接
 
-- [📖 组件文档](https://your-username.github.io/francis-component-react/)
+- [📖 组件文档](https://francisxihe.github.io/francis-component-react/)
 - [🎨 Storybook 演示](https://your-storybook-url.com)
-- [🐛 报告问题](https://github.com/your-username/francis-component-react/issues)
+- [🐛 报告问题](https://github.com/francisxihe/francis-component-react/issues)
 
 ## 🤝 参与贡献
 
 我们欢迎所有的贡献。请先阅读我们的[贡献指南](./CONTRIBUTING.md)。
 
-你可以将任何想法作为 [Pull Request](https://github.com/your-username/francis-component-react/pulls) 或 [GitHub Issue](https://github.com/your-username/francis-component-react/issues) 提交。
+你可以将任何想法作为 [Pull Request](https://github.com/francisxihe/francis-component-react/pulls) 或 [GitHub Issue](https://github.com/francisxihe/francis-component-react/issues) 提交。
 
 ## 🛠 开发
 
@@ -90,7 +90,7 @@ export default App;
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/francis-component-react.git
+git clone https://github.com/francisxihe/francis-component-react.git
 
 # 进入项目目录
 cd francis-component-react

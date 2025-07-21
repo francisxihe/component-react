@@ -14,5 +14,5 @@
     "types": ["node", "jest"]
   },
   "include": ["components/**/*.ts", "components/**/*.tsx", "types/**/*.d.ts"],
-  "exclude": ["node_modules", "docs/**/*", "components/**/*.test.tsx", "components/**/*.test.ts", "components/*/demo/*.*"]
+  "exclude": ["node_modules", "docs/**/*", "components/**/*.test.tsx", "components/**/*.test.ts", "components/*/demo/*.*", "**/*.md"]
 }

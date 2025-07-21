@@ -87,3 +87,10 @@ export function ContainerShrink(
     </div>
   );
 }
+
+const FlexibleContainer = Object.assign(Container, {
+  Fixed: ContainerFixed,
+  Shrink: ContainerShrink,
+});
+
+export default FlexibleContainer;
