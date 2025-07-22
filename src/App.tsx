@@ -1,6 +1,7 @@
 import React from 'react';
-import { ContextMenu } from '../components';
+import { ContextMenu, TextEllipsis } from '../components';
 import type { ContextMenuItem } from '../components/ContextMenu';
+import BasicDemo from '../components/TextEllipsis/demo/basic';
 import './App.css';
 
 const menuItems: ContextMenuItem[] = [
@@ -41,6 +42,11 @@ function App() {
           >
             <div className="trigger-area">右键点击这里打开上下文菜单</div>
           </ContextMenu>
+        </div>
+        
+        <div className="demo-container">
+          <h2>TextEllipsis 组件演示</h2>
+          <BasicDemo />
         </div>
       </header>
     </div>

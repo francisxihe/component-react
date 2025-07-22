@@ -1,5 +1,7 @@
 import React, { CSSProperties, ReactNode, useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import clsx from 'clsx';
+import styles from './style.module.less';
 
 export interface ContextMenuItem {
   key: string;
@@ -23,6 +25,8 @@ export interface ContextMenuProps {
   style?: CSSProperties;
   /** 菜单容器样式 */
   menuStyle?: CSSProperties;
+  /** 点击外部是否隐藏菜单 */
+  blurToHide?: boolean;
   /** 菜单项点击回调 */
   onItemClick?: (item: ContextMenuItem) => void;
   /** 菜单显示状态变化回调 */
@@ -30,7 +34,15 @@ export interface ContextMenuProps {
 }
 
 const ContextMenu = (props: ContextMenuProps) => {
-  const { children, items, style, menuStyle, onItemClick, onVisibleChange } = props;
+  const {
+    children,
+    items,
+    style,
+    menuStyle,
+    blurToHide = true,
+    onItemClick,
+    onVisibleChange,
+  } = props;
   const [visible, setVisible] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -60,7 +72,7 @@ const ContextMenu = (props: ContextMenuProps) => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node) && blurToHide) {
         setVisible(false);
       }
     };
@@ -76,17 +88,7 @@ const ContextMenu = (props: ContextMenuProps) => {
 
   const renderMenuItem = (item: ContextMenuItem, level = 0) => {
     if (item.divider) {
-      return (
-        <div
-          key={item.key}
-          className="context-menu-divider"
-          style={{
-            height: '1px',
-            backgroundColor: '#e5e5e5',
-            margin: '4px 0',
-          }}
-        />
-      );
+      return <div key={item.key} className={styles['context-menu-divider']} />;
     }
 
     const hasChildren = item.children && item.children.length > 0;
@@ -95,17 +97,11 @@ const ContextMenu = (props: ContextMenuProps) => {
     return (
       <div key={item.key} className="context-menu-item-wrapper">
         <div
-          className={`context-menu-item ${item.disabled ? 'disabled' : ''}`}
+          className={clsx(styles['context-menu-item'], `${item.disabled ? 'disabled' : ''}`)}
           style={{
-            padding: '8px 12px',
             cursor: item.disabled ? 'not-allowed' : 'pointer',
             backgroundColor: isHovered && !item.disabled ? '#f5f5f5' : 'transparent',
             color: item.disabled ? '#ccc' : '#333',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            fontSize: '14px',
-            transition: 'background-color 0.2s',
           }}
           onClick={() => handleItemClick(item)}
           onMouseEnter={() => setHoveredItem(item.key)}
@@ -118,20 +114,7 @@ const ContextMenu = (props: ContextMenuProps) => {
           {item.children && <span style={{ fontSize: '12px', color: '#999' }}>▶</span>}
         </div>
         {hasChildren && isHovered && (
-          <div
-            className="context-menu-submenu"
-            style={{
-              position: 'absolute',
-              left: '100%',
-              top: '0',
-              backgroundColor: '#fff',
-              border: '1px solid #e5e5e5',
-              borderRadius: '4px',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-              minWidth: '120px',
-              zIndex: 1001,
-            }}
-          >
+          <div className={styles['context-menu-submenu']}>
             {item.children!.map((child) => renderMenuItem(child, level + 1))}
           </div>
         )}
@@ -142,17 +125,10 @@ const ContextMenu = (props: ContextMenuProps) => {
   const menuElement = visible ? (
     <div
       ref={menuRef}
-      className="context-menu"
+      className={styles['context-menu']}
       style={{
-        position: 'fixed',
         left: position.x,
         top: position.y,
-        backgroundColor: '#fff',
-        border: '1px solid #e5e5e5',
-        borderRadius: '4px',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
-        minWidth: '120px',
-        zIndex: 1000,
         ...menuStyle,
       }}
     >
