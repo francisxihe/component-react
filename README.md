@@ -32,9 +32,14 @@ pnpm add francis-component-react
 
 ```tsx
 import React from 'react';
-import { Container, TagEllipsis, ContextMenu } from 'francis-component-react';
+import { Container, TagEllipsis, AsyncButton, TooltipButton } from 'francis-component-react';
 
 function App() {
+  const handleAsyncClick = async () => {
+    // 模拟异步操作
+    await new Promise(resolve => setTimeout(resolve, 2000));
+  };
+
   return (
     <Container direction="vertical">
       <TagEllipsis maxTag={3}>
@@ -43,6 +48,14 @@ function App() {
         <span>标签3</span>
         <span>标签4</span>
       </TagEllipsis>
+      
+      <AsyncButton onClick={handleAsyncClick} type="primary">
+        异步按钮
+      </AsyncButton>
+      
+      <TooltipButton tooltip="这是一个带提示的按钮" placement="top">
+        提示按钮
+      </TooltipButton>
     </Container>
   );
 }
@@ -62,15 +75,18 @@ export default App;
 ### 数据展示
 
 - **TagEllipsis** - 标签省略组件，支持响应式显示和省略
+- **TextEllipsis** - 文本省略组件，支持单行和多行文本省略
 
 ### 交互组件
 
 - **ContextMenu** - 右键菜单组件
+- **AsyncButton** - 异步按钮组件，支持异步操作时自动显示加载状态
+- **TooltipButton** - 带提示的按钮组件，基于 Arco Design 的 Tooltip 组件
 
 ## 🔗 链接
 
 - [📖 组件文档](https://francisxihe.github.io/francis-component-react/)
-- [🎨 Storybook 演示](https://your-storybook-url.com)
+- [🎨 Storybook 演示](https://your-storybook-url.vercel.app/) (需要部署后更新)
 - [🐛 报告问题](https://github.com/francisxihe/francis-component-react/issues)
 
 ## 🤝 参与贡献
@@ -99,7 +115,7 @@ cd francis-component-react
 pnpm install
 
 # 启动 Storybook 开发服务器
-pnpm dev
+pnpm dev:storybook
 
 # 构建组件库
 pnpm build

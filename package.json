@@ -1,6 +1,6 @@
 {
   "name": "francis-component-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "基于 arco-design 组件库的 react 组件库，用于扩充 arco-design 组件库的功能",
   "main": "./dist/index.es.js",
   "module": "./dist/index.es.js",
