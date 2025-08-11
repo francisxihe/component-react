@@ -74,3 +74,5 @@ typings/
 /es
 /lib
 /dist
+
+/storybook-static
