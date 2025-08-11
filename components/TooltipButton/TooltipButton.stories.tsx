@@ -78,7 +78,6 @@ export const Positions: Story = {
   ),
 };
 
-
 export const LongText: Story = {
   args: {
     tooltip: '这是一个很长的提示信息，用来测试提示框在长文本情况下的显示效果',

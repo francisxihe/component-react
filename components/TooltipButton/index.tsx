@@ -1,38 +1,37 @@
 import React from 'react';
 import { Button, Tooltip } from '@arco-design/web-react';
-import type { ButtonProps } from '@arco-design/web-react/es/Button';
-import type { TooltipProps } from '@arco-design/web-react/es/Tooltip';
+import type { ButtonProps } from '@arco-design/web-react';
+import clsx from 'clsx';
 import styles from './style.module.less';
 
-export interface TooltipButtonProps extends Omit<ButtonProps, 'children'> {
-  /** 提示内容 */
+export interface TooltipButtonProps extends ButtonProps {
+  /** tooltip显示的文字内容 */
   tooltip?: string;
-  /** 提示位置 */
-  placement?: TooltipProps['position'];
-  /** 按钮内容 */
-  children: React.ReactNode;
+  /** tooltip位置 */
+  placement?: 'top' | 'bottom' | 'left' | 'right' | 'tl' | 'tr' | 'bl' | 'br';
 }
 
-const TooltipButton: React.FC<TooltipButtonProps> = ({
-  tooltip,
-  placement = 'top',
-  children,
-  className,
-  ...buttonProps
-}) => {
-  const buttonElement = (
-    <Button className={`${styles['tooltip-button']} ${className || ''}`} {...buttonProps}>
-      {children}
-    </Button>
-  );
+/**
+ * @title TooltipButton 带提示的按钮
+ * @description 基于arco-design的Tooltip和Button组件，鼠标悬停时显示tooltip文字内容
+ */
+const TooltipButton: React.FC<TooltipButtonProps> = (props) => {
+  const { tooltip, placement = 'top', className, children, ...restProps } = props;
 
+  // 如果没有tooltip内容，直接返回Button
   if (!tooltip) {
-    return buttonElement;
+    return (
+      <Button {...restProps} className={clsx(styles['tooltip-button'], className)}>
+        {children}
+      </Button>
+    );
   }
 
   return (
     <Tooltip content={tooltip} position={placement}>
-      {buttonElement}
+      <Button {...restProps} className={clsx(styles['tooltip-button'], className)}>
+        {children}
+      </Button>
     </Tooltip>
   );
 };
