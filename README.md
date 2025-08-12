@@ -85,13 +85,12 @@ export default App;
 
 ## 🔗 链接
 
-- [📖 组件文档](https://francisxihe.github.io/francis-component-react/)
-- [🎨 Storybook 演示](https://your-storybook-url.vercel.app/) (需要部署后更新)
+- [🎨 Storybook 演示](https://component-react-smoky.vercel.app/) (需要部署后更新)
 - [🐛 报告问题](https://github.com/francisxihe/francis-component-react/issues)
 
 ## 🤝 参与贡献
 
-我们欢迎所有的贡献。请先阅读我们的[贡献指南](./CONTRIBUTING.md)。
+我们欢迎所有的贡献。
 
 你可以将任何想法作为 [Pull Request](https://github.com/francisxihe/francis-component-react/pulls) 或 [GitHub Issue](https://github.com/francisxihe/francis-component-react/issues) 提交。
 
@@ -149,7 +148,6 @@ francis-component-react/
 │   │   └── __test__/   # 组件测试
 │   └── index.tsx       # 组件导出
 ├── stories/            # Storybook 文档
-├── docs/              # GitHub Pages 文档
 ├── types/             # TypeScript 类型定义
 └── tests/             # 测试配置
 ```
