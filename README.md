@@ -31,7 +31,6 @@ pnpm add francis-component-react
 ## 🔨 使用
 
 ```tsx
-import React from 'react';
 import { Container, TagEllipsis, AsyncButton, TooltipButton } from 'francis-component-react';
 
 function App() {

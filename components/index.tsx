@@ -4,3 +4,4 @@ export { default as FlexibleContainer } from './FlexibleContainer';
 export { default as TagEllipsis } from './TagEllipsis';
 export { default as TextEllipsis } from './TextEllipsis';
 export { default as TooltipButton } from './TooltipButton';
+export { default as RepeatSelector } from './Repeat';

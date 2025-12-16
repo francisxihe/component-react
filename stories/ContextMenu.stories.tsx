@@ -7,13 +7,13 @@ const menuItems = [
     key: 'copy',
     label: '复制',
     icon: '📋',
-    onClick: (item) => alert(`点击了: ${item.label}`),
+    onClick: (item: { key: string; label: string }) => alert(`点击了: ${item.label}`),
   },
   {
     key: 'paste',
     label: '粘贴',
     icon: '📄',
-    onClick: (item) => alert(`点击了: ${item.label}`),
+    onClick: (item: { key: string; label: string }) => alert(`点击了: ${item.label}`),
   },
   {
     key: 'divider1',
@@ -27,12 +27,12 @@ const menuItems = [
       {
         key: 'rename',
         label: '重命名',
-        onClick: (item) => alert(`点击了: ${item.label}`),
+        onClick: (item: { key: string; label: string }) => alert(`点击了: ${item.label}`),
       },
       {
         key: 'duplicate',
         label: '复制副本',
-        onClick: (item) => alert(`点击了: ${item.label}`),
+        onClick: (item: { key: string; label: string }) => alert(`点击了: ${item.label}`),
       },
     ],
   },
@@ -40,7 +40,7 @@ const menuItems = [
     key: 'delete',
     label: '删除',
     icon: '🗑️',
-    onClick: (item) => alert(`点击了: ${item.label}`),
+    onClick: (item: { key: string; label: string }) => alert(`点击了: ${item.label}`),
   },
   {
     key: 'divider2',
@@ -51,7 +51,7 @@ const menuItems = [
     label: '禁用项',
     icon: '🚫',
     disabled: true,
-    onClick: (item) => alert(`点击了: ${item.label}`),
+    onClick: (item: { key: string; label: string }) => alert(`点击了: ${item.label}`),
   },
 ];
 
