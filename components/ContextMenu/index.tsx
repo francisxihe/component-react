@@ -23,8 +23,12 @@ export interface ContextMenuProps {
   items: ContextMenuItem[];
   /** 自定义样式 */
   style?: CSSProperties;
+  /** 自定义类名 */
+  className?: string;
   /** 菜单容器样式 */
   menuStyle?: CSSProperties;
+  /** 菜单容器类名 */
+  menuClassName?: string;
   /** 点击外部是否隐藏菜单 */
   blurToHide?: boolean;
   /** 菜单项点击回调 */
@@ -38,7 +42,9 @@ const ContextMenu = (props: ContextMenuProps) => {
     children,
     items,
     style,
+    className,
     menuStyle,
+    menuClassName,
     blurToHide = true,
     onItemClick,
     onVisibleChange,
@@ -74,6 +80,7 @@ const ContextMenu = (props: ContextMenuProps) => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node) && blurToHide) {
         setVisible(false);
+        onVisibleChange?.(false);
       }
     };
 
@@ -84,7 +91,7 @@ const ContextMenu = (props: ContextMenuProps) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [onVisibleChange]);
+  }, [visible, blurToHide, onVisibleChange]);
 
   const renderMenuItem = (item: ContextMenuItem, level = 0) => {
     if (item.divider) {
@@ -125,7 +132,7 @@ const ContextMenu = (props: ContextMenuProps) => {
   const menuElement = visible ? (
     <div
       ref={menuRef}
-      className={styles['context-menu']}
+      className={clsx(styles['context-menu'], menuClassName)}
       style={{
         left: position.x,
         top: position.y,
@@ -140,6 +147,7 @@ const ContextMenu = (props: ContextMenuProps) => {
     <>
       <div
         ref={containerRef}
+        className={className}
         style={{ display: 'inline-block', ...style }}
         onContextMenu={handleContextMenu}
       >

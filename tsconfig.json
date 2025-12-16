@@ -7,12 +7,12 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "es6",
     "target": "es5",
     "lib": ["es5", "dom"],
     "types": ["node", "jest"]
   },
-  "include": ["components/**/*.ts", "components/**/*.tsx", "types/**/*.d.ts"],
+  "include": ["components/**/*.ts", "components/**/*.tsx", "types/**/*.d.ts", "stories/RepeatSelector.stories.tsx"],
   "exclude": ["node_modules", "components/**/*.test.tsx", "components/**/*.test.ts", "components/*/demo/*.*", "**/*.md"]
 }
