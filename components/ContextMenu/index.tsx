@@ -77,16 +77,18 @@ const ContextMenu = (props: ContextMenuProps) => {
   );
 
   useEffect(() => {
+    if (!visible || !blurToHide) {
+      return;
+    }
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node) && blurToHide) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setVisible(false);
         onVisibleChange?.(false);
       }
     };
 
-    if (visible) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
